@@ -1,0 +1,12 @@
+1. crear entorno virtual
+2. activar el entorno para comenzar a trabajar
+3. instalar django
+4. crear el proyecto
+django-admin.exe startproject config .
+5. configuraciones iniciales del proyecto -z probar el proyecto y realizar migraciones iniciales
+6. CREAR APLICACIÓN DE USUARIOS
+python manage.py startapp usuarios
+7. a cada aplicación agregar el archivo urls.py
+8. registrar aplicaciones en settings.py
+9. crear el usuario superuser
+10. definir una estructura de templates dinámicos
