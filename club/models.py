@@ -4,11 +4,12 @@ class Club(models.Model):
     DIVISIONES = [
         ('Primera A', 'Primera división'),
         ('Primera B', 'Segunda división'),
-        ('Sin división', 'club sin divisón'),
+        ('Sin división', 'club sin división'),
     ]
     
     nombre = models.CharField(max_length=100, blank=False, null=False)
     liga = models.CharField(max_length=100, blank=False, null=False, choices=DIVISIONES, default='Sin división')
+    imagen = models.URLField(null=True)
     
     def __str__(self) -> str:
         return self.nombre

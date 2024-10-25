@@ -1,0 +1,44 @@
+{% extends "layouts/base.html" %}
+
+{% block contenido %}
+
+    <main class="container">
+        <section>
+            <h1 class="text-center py-5">Detalle del club {{club.nombre}}</h1>
+
+            <div>
+                <img src="{{club.imagen}}" class="rounded mx-auto d-block" alt="club.nombre">
+            </div>
+        </section>
+
+        <section>
+            <h3 class="text-center">Listado de jugadores del club:</h3>
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Dorsal</th>
+                    <th scope="col">Posición</th>
+                    <th scope="col">Detalle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for jugador in jugadores %}
+                    <tr>
+                        <td>{{jugador.nombre}}</td>
+                        <td>{{jugador.apellido}}</td>
+                        <td>{{jugador.dorsal}}</td>
+                        <td>{{jugador.posicion}}</td>
+                        <td>
+                            <button class="btn btn-primary">Ver más</button>
+                        </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </section>
+
+    </main>
+{% endblock  %}

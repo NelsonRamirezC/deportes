@@ -12,3 +12,8 @@ python manage.py startapp usuarios
 10. definir una estructura de templates dinámicos
 crear carpeta layouts / partials / carpetas 
 11. cada vez que se agregan, modifican / etc los modelos hay que generar migraciones y aplicarlas
+
+pasos como rutina por vista
+1. crear la vista
+2. crear el template
+3. definir la urls
