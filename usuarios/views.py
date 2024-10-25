@@ -1,5 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
+from django.http import HttpRequest
+from django.http.response import HttpResponse as HttpResponse
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -33,3 +35,10 @@ class UserLoginView(LoginView):
     
     
 #vista de logout
+class UserLogoutView(LogoutView):
+    next_page = 'index'
+    
+    def dispatch(self, request, *args, **kwargs):
+        messages.success(self.request, 'Ha cerrado la sesión exitosamente.')
+        return super().dispatch(request, *args, **kwargs)
+    

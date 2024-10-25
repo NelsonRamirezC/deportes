@@ -2,11 +2,11 @@
 
 
 {% block contenido %}
-<header>
-    <h1>Página de login de usuario</h1>
-</header>
 
-<main>
+<main class="container">
+    <section>
+        <h1 class="text-center py-5">Página de login de usuario</h1>
+    </section>
     <section>
         <form method="post">
             {% csrf_token %}
