@@ -1,0 +1,14 @@
+form input,
+form label {
+    display: block;
+}
+
+form input,
+form label,
+form select {
+    width: 100%;
+}
+
+form div {
+    margin-bottom: 16px;
+}

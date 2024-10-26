@@ -8,12 +8,15 @@
         <h1 class="text-center py-5">Página de login de usuario</h1>
     </section>
     <section>
-        <form method="post">
-            {% csrf_token %}
-            {{form}}
-
-            <input type="submit" value="Iniciar sesión">
-        </form>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-5 col-lg-4">
+                <form method="post">
+                    {% csrf_token %}
+                    {{form}}
+                    <input type="submit" value="Iniciar sesión" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
     </section>
 </main>
 

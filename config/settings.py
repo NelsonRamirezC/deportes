@@ -28,6 +28,19 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+from django.contrib.messages import constants
+# CAMBIO DE VALORES EN ERRORES / MESSAGES
+
+
+MESSAGE_TAGS = {
+    constants.ERROR: 'danger',
+    constants.INFO: 'info',
+    constants.SUCCESS: 'success',
+    constants.WARNING: 'warning',
+    constants.DEBUG: 'primary',
+}
+
+
 # Application definition
 
 INSTALLED_APPS = [
