@@ -60,5 +60,42 @@ class ClubUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     success_url = reverse_lazy('clubs')
     permission_required = 'club.change_club'
     
+    def handle_no_permission(self):
+        if self.request.user.is_authenticated:
+            messages.error(self.request, "Usted no tiene el nivel de acceso para actualizar datos.")
+            return redirect("index")
+        
+        else:
+            messages.info(self.request, "Para actualizar, primero debe iniciar sesión.")
+            return redirect("login")
+    
 
 # ELIMINAR CLUB
+
+class ClubDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+    model = Club
+    template_name = "club/delete_club.html"
+    success_url = reverse_lazy('clubs')
+    permission_required = 'club.delete_club'
+    
+    def handle_no_permission(self):
+        if self.request.user.is_authenticated:
+            messages.error(self.request, "Usted no tiene el nivel de acceso para eliminar datos.")
+            return redirect("index")
+        
+        else:
+            messages.info(self.request, "Para eliminar datos, primero debe iniciar sesión.")
+            return redirect("login")
+
+
+
+# VISTAS DEL MODELO JUGADOR
+class JugadorDetailView(DetailView):
+    model = Jugador
+    template_name = "jugadores/detail_jugador.html"
+    context_object_name = 'jugador'
+    
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context["jugadores"] = self.object.jugadores.all()
+    #     return context

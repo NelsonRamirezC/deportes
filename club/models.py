@@ -17,6 +17,7 @@ class Club(models.Model):
     
 
 class Jugador(models.Model):
+        
     
     POSICIONES = [
         ('POR', 'Portero'),

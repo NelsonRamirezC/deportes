@@ -1,0 +1,17 @@
+{% extends "layouts/base.html" %}
+
+{% block contenido %}
+
+<main class="container">
+    <section>
+        <h2 class="text-center py-2">Detalles del jugador: {{jugador.nombre}}</h2>
+        <hr>
+        <p>Dorsal: {{jugador.dorsal}}</p>
+        <p>Posicion: {{jugador.posicion}}</p>
+        <p>Club: {{jugador.club}}</p>
+
+    </section>
+</main>
+
+{% endblock contenido %}
+

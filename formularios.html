@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Formularios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Mi formulario</h2>
+                <form id="mi_formulario">
+                    <div class="contenido">
+                    </div>
+                    <div>
+                        <input type="submit" value="enviar" class="btn btn-success">
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <h2>Seleccion de campos</h2>
+                <div>
+                    <p>INPUT DE TIPO TEXTO</p>
+                    <button onclick="inputTexto()">Agregar</button>
+                </div>
+                <div>
+                    <p>CHECKBOX</p>
+                    <button onclick="inputCheckbox()">Agregar</button>
+                </div>
+                <div>
+                    <p>RADIO</p>
+                    <button onclick="inputRadio()">Agregar</button>
+                </div>
+                <div>
+                    <p>SELECT</p>
+                    <button onclick="inputSelect()">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const inputTexto = () => {
+            contenido_form = document.querySelector("#mi_formulario .contenido")
+            const nuevoInput = document.createElement("input")
+            const caja = document.createElement("div")
+            const etiqueta = document.createElement("label")
+            nuevoInput.setAttribute("type", "text")
+            nombre = prompt("Qué nombre le das al input?")
+            requerido = confirm("El atributo es requerido?")
+            if(requerido){
+                nuevoInput.setAttribute("required", 'required')
+            }
+            nuevoInput.setAttribute("name", nombre)
+            etiqueta.innerText = nombre
+            caja.appendChild(etiqueta)
+            caja.appendChild(nuevoInput)
+            contenido_form.appendChild(caja)
+        }
+
+        const inputCheckbox = () => {
+            contenido_form = document.querySelector("#mi_formulario .contenido")
+            const nuevoInput = document.createElement("input")
+            const caja = document.createElement("div")
+            const etiqueta = document.createElement("label")
+            nuevoInput.setAttribute("type", "checkbox")
+            nombre = prompt("Qué nombre le das al checkbox?")
+            requerido = confirm("El atributo es requerido?")
+            if(requerido){
+                nuevoInput.setAttribute("required", 'required')
+            }
+            nuevoInput.setAttribute("name", nombre)
+            etiqueta.innerText = nombre
+            caja.appendChild(etiqueta)
+            caja.appendChild(nuevoInput)
+            contenido_form.appendChild(caja)
+        }
+
+        const inputRadio = () => {
+            contenido_form = document.querySelector("#mi_formulario .contenido")
+            const nuevoInput = document.createElement("input")
+            const caja = document.createElement("div")
+            const etiqueta = document.createElement("label")
+            nuevoInput.setAttribute("type", "radio")
+            nombre = prompt("Qué nombre le das al radio?")
+            requerido = confirm("El atributo es requerido?")
+            if(requerido){
+                nuevoInput.setAttribute("required", 'required')
+            }
+            nuevoInput.setAttribute("name", nombre)
+            etiqueta.innerText = nombre
+            caja.appendChild(etiqueta)
+            caja.appendChild(nuevoInput)
+            contenido_form.appendChild(caja)
+        }
+
+        const inputSelect = () => {
+            contenido_form = document.querySelector("#mi_formulario .contenido")
+            const nuevoSelect = document.createElement("select")
+            const caja = document.createElement("div")
+            const etiqueta = document.createElement("label")
+            nombre = prompt("Qué nombre le das al select?")
+            let opciones = prompt("Ingresa las opciones separadas por comas")
+            opciones = opciones.split(',')
+            opciones.forEach(opcion => {
+                const opt = document.createElement("option")
+                opt.value = opcion.trim()
+                opt.innerText = opcion.trim()
+                nuevoSelect.appendChild(opt)
+            })
+            requerido = confirm("El atributo es requerido?")
+            if(requerido){
+                nuevoSelect.setAttribute("required", 'required')
+            }
+            nuevoSelect.setAttribute("name", nombre)
+            etiqueta.innerText = nombre
+            caja.appendChild(etiqueta)
+            caja.appendChild(nuevoSelect)
+            contenido_form.appendChild(caja)
+        }
+    </script>
+</body>

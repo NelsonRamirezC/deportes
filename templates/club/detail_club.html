@@ -6,12 +6,20 @@
         <section>
             <h1 class="text-center py-5">Detalle del club {{club.nombre}}</h1>
 
-           
-            {% if  perms.club.change_club %}
-                <div class="py-3">
+            <div class="d-flex py-3 justify-content-between">
+              {% if  perms.club.change_club %}
+                <div>
                     <a class="btn btn-warning" href="{% url "update_club" club.id %}">Modificar datos del club</a>
                 </div>
-            {% endif %}
+              {% endif %}
+
+              {% if  perms.club.delete_club %}
+                <div>
+                    <a class="btn btn-danger" href="{% url "delete_club" club.id %}">Eliminar club</a>
+                </div>
+              {% endif %}
+
+            </div>
 
             <div>
                 <img src="{{club.imagen}}" class="rounded mx-auto d-block" alt="club.nombre">
@@ -39,7 +47,7 @@
                         <td>{{jugador.dorsal}}</td>
                         <td>{{jugador.posicion}}</td>
                         <td>
-                            <button class="btn btn-primary">Ver más</button>
+                            <a class="btn btn-primary" href="{% url "jugador_detail" jugador.id %}" >Ver más</a>
                         </td>
                     </tr>
                   {% endfor %}
