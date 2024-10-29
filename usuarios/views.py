@@ -6,6 +6,8 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from django.contrib import messages
 
+from django.contrib.auth.models import Permission
+
 
 # VISTA BASADA EN CLASE PARA REGISTRO
 class UserRegistroView(CreateView):
@@ -14,8 +16,15 @@ class UserRegistroView(CreateView):
     success_url = reverse_lazy('login')
     
     def form_valid(self, form):
-        messages.success(self.request, 'Registro realizo con éxito.')
-        return super().form_valid(form)
+        
+        response = super().form_valid(form)
+        usuario = form.instance # obtenemos la istancia de la Clase User
+        permiso = Permission.objects.get(codename='can_edit_clubes') # obtener permiso desde la base de datos
+        usuario.user_permissions.add(permiso) # le agregamos el permiso al usuario
+        usuario.save()
+
+        messages.success(self.request, 'Registro exitoso.')
+        return response
     
     
 
@@ -27,6 +36,7 @@ class UserLoginView(LoginView):
 
     
     def form_valid(self, form):
+        
         messages.success(self.request, 'Login exitoso.')
         return super().form_valid(form)
     

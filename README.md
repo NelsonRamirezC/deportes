@@ -29,3 +29,6 @@ Usuario: editor1
 Contraseña: 123456
 ```
 
+## OBSERVACIONES / CAMBIOS
+
+

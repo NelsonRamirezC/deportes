@@ -8,7 +8,7 @@ django-admin.exe startproject config .
 python manage.py startapp usuarios
 7. a cada aplicación agregar el archivo urls.py
 8. registrar aplicaciones en settings.py
-9. crear el usuario superuser
+9. crear el usuario superuser -> python manage.py createsuperuser
 10. definir una estructura de templates dinámicos
 crear carpeta layouts / partials / carpetas 
 11. cada vez que se agregan, modifican / etc los modelos hay que generar migraciones y aplicarlas

@@ -7,7 +7,7 @@
             <h1 class="text-center py-5">Detalle del club {{club.nombre}}</h1>
 
             <div class="d-flex py-3 justify-content-between">
-              {% if  perms.club.change_club %}
+              {% if  perms.club.can_edit_clubes %}
                 <div>
                     <a class="btn btn-warning" href="{% url "update_club" club.id %}">Modificar datos del club</a>
                 </div>

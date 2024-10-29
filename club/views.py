@@ -12,10 +12,23 @@ class ClubesView(ListView):
     template_name = "club/clubs.html"
     context_object_name = 'clubs'
     
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["titulo"] = 'Página de equipos deportivos'
         return context
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+    
+        nombre_club = self.request.GET.get('nombre_club', None)
+        
+        print("Nombre Club:", nombre_club)
+        
+        if nombre_club:
+             queryset = queryset.filter(nombre__icontains=nombre_club) # equivale a un ilike
+                    
+        return queryset
     
 class ClubDetailView(DetailView):
     model = Club
@@ -58,7 +71,7 @@ class ClubUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     template_name = "club/update_club.html"
     fields = ['nombre', 'liga', 'imagen']
     success_url = reverse_lazy('clubs')
-    permission_required = 'club.change_club'
+    permission_required = 'club.can_edit_clubes'
     
     def handle_no_permission(self):
         if self.request.user.is_authenticated:

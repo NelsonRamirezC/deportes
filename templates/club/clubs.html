@@ -8,8 +8,13 @@
         <h1 class="text-center py-5">{{titulo}}</h1>
     </section>
 
-    <section>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-3">
+            {% include "partials/busqueda_nombre_club.html" %}
+        </div>
+    </div>
 
+    <section>
         {% if  perms.club.add_club %}
             <div class="py-3">
                 <a class="btn btn-success" href="{% url "create_club" %}">Crea un nuevo club</a>
