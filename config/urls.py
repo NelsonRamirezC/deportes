@@ -8,4 +8,6 @@ urlpatterns = [
     path('', views.IndexView, name='index'),
     path('usuarios/', include('usuarios.urls')),
     path('', include('club.urls')),
+    path('api/', include('api.urls')),
 ]
+

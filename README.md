@@ -31,4 +31,10 @@ Contraseña: 123456
 
 ## OBSERVACIONES / CAMBIOS
 
+## BACKUP BASE DE DATOS
+
+Se encuentra en directorio ... con el nombre ...
+pasos para restaurar:
+1. 
+
 

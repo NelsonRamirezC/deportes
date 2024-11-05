@@ -111,4 +111,5 @@ class JugadorDetailView(DetailView):
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
     #     context["jugadores"] = self.object.jugadores.all()
-    #     return context
+    #     return context4
+    

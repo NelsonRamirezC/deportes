@@ -17,3 +17,8 @@ pasos como rutina por vista
 1. crear la vista
 2. crear el template
 3. definir la urls
+
+12. crear el archivo requirements.txt en la raíz del proyecto (al mismo nivel que manage.py)
+pip freeze > requirements.txt
+13. instalar dependencias desde archivo requirements.txt
+pip install -r requirements.txt
